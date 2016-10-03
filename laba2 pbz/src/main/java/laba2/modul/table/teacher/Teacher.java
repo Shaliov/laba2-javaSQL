@@ -1,9 +1,9 @@
 package laba2.modul.table.teacher;
 
 
-import laba2.enumeration.TeacherEducation;
-import laba2.enumeration.TeacherSex;
-import laba2.enumeration.TeacherType;
+import laba2.enumeration.view.TeacherEducation;
+import laba2.enumeration.view.TeacherSex;
+import laba2.enumeration.view.TeacherType;
 
 import java.util.Date;
 

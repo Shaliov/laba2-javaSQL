@@ -13,22 +13,20 @@ public class DBWorker {
 
     }
 
-    public Connection openConnection() {
+    public void openConnection() {
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return connection;
     }
 
-    public Connection closeConnection() {
+    public void closeConnection() {
         try {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return connection;
     }
 
     public static DBWorker getInstance() {

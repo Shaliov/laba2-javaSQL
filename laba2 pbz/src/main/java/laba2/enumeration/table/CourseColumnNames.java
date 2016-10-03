@@ -19,5 +19,4 @@ public enum  CourseColumnNames {
     public String getName() {
         return name;
     }
-
 }

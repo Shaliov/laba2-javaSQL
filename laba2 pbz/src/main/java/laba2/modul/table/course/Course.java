@@ -1,7 +1,7 @@
 package laba2.modul.table.course;
 
 
-import laba2.enumeration.CourseType;
+import laba2.enumeration.view.CourseType;
 
 public class Course {
     private int id;

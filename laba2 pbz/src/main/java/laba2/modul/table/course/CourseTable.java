@@ -1,14 +1,16 @@
 package laba2.modul.table.course;
 
 
+import laba2.modul.dataBase.DBStorage;
 import laba2.enumeration.table.CourseColumnNames;
+import laba2.modul.table.price.Price;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
 public class CourseTable extends AbstractTableModel {
-    private List<Course> courseList;
-    public static final int column = 7;
+    private List<Course> courseList = DBStorage.getInstance().getCourseList();
+    public static final int column = 6;
 
     public CourseTable() {
     }
@@ -40,8 +42,4 @@ public class CourseTable extends AbstractTableModel {
     public int getColumnCount() {
         return column;
     }
-
-
-
-
 }

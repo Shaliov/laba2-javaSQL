@@ -1,4 +1,4 @@
-package laba2.enumeration;
+package laba2.enumeration.view;
 
 
 public enum CourseType {
