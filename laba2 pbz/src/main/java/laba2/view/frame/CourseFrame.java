@@ -2,14 +2,11 @@ package laba2.view.frame;
 
 import laba2.controller.CourseController;
 import laba2.modul.table.course.CourseTable;
-import laba2.view.bar.CRUDBarCourse;
-import laba2.view.frame.Dialog.AddDialogCourseTable;
+import laba2.view.box.CRUDBarCourse;
 import laba2.view.panel.TableComponent;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class CourseFrame extends JFrame {
     private CourseController courseController;
@@ -29,8 +26,8 @@ public class CourseFrame extends JFrame {
         courseController = new CourseController();
         CRUDBarCourse crudBarCourse = new CRUDBarCourse();
         crudBarCourse.setCourseController(courseController);
-        crudBarCourse.addBar();
-        crudBarCourse.setOrientation(SwingConstants.VERTICAL);
+        crudBarCourse.addCourse();
+        crudBarCourse.removeCourse();
         tableComponent.setVisible(true);
         add(tableComponent);
         add(crudBarCourse, "South");

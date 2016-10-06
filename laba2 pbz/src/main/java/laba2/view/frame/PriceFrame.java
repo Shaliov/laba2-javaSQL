@@ -1,7 +1,5 @@
 package laba2.view.frame;
 
-
-import laba2.modul.table.document.DocumentTable;
 import laba2.modul.table.price.PriceTable;
 import laba2.view.panel.TableComponent;
 

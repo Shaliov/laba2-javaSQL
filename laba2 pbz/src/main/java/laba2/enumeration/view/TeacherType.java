@@ -2,9 +2,9 @@ package laba2.enumeration.view;
 
 
 public enum TeacherType {
-    ВЫС("высшая"),
-    П("первая"),
-    В("вторая");
+    ВЫС(ConstForView.HIGHEST),
+    П(ConstForView.FIRST),
+    В(ConstForView.SECOND);
 
     private String name;
 

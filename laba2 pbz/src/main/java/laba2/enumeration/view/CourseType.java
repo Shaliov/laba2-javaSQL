@@ -2,8 +2,8 @@ package laba2.enumeration.view;
 
 
 public enum CourseType {
-    ИТ("информационные технологии"),
-    М("менеджмент");
+    ИТ(ConstForView.IT),
+    М(ConstForView.MANAGER);
 
     private String name;
 

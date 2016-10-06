@@ -11,6 +11,7 @@ public class Course {
     private int numberOfGroup;
     private int price;
     private final double priceNDS;
+    private static final double NDS = 1.20;
 
     public Course(String name, CourseType type, int trainingDays, int numberOfGroup, int price) {
         this.name = name;
@@ -18,7 +19,7 @@ public class Course {
         this.trainingDays = trainingDays;
         this.numberOfGroup = numberOfGroup;
         this.price = price;
-        priceNDS = price * 1.20;
+        priceNDS = price * NDS;
     }
 
     public String getName() {

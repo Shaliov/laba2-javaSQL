@@ -8,11 +8,12 @@ public class Price {
     private Date date;
     private int price;
     private final double priceNDS;
+    private static final double NDS = 1.20;
 
     public Price(Date date, int price) {
         this.date = date;
         this.price = price;
-        priceNDS = price * 1.20;
+        priceNDS = price * NDS;
     }
 
     public Date getDate() {

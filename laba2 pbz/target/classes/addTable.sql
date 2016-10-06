@@ -20,7 +20,7 @@ courseID INT(10) not null auto_increment,
 courseName VARCHAR(30) not null,
 courseType enum('информационные технологии', 'менеджмент') not null,
 courseTrainingDays INT(10) not null,
-corseNumberOfGroup INT(10) not null,
+courseNumberOfGroup INT(10) not null,
 pricePrice INT(30) not null,
 pricePriceNDS INT(30) not null,
 primary key(courseID));

@@ -1,11 +1,13 @@
 package laba2.enumeration.table;
 
 
+import laba2.enumeration.view.ConstForView;
+
 public enum DocumentColumnNames {
-    ID_COURSE("ID курса"),
-    ID_TEACHER("ID преподавателя"),
-    START_TRAINING_DAYS("начало обучения"),
-    TRAINING_DAYS("количество дней");
+    ID_COURSE(ConstForView.ID_COURSE),
+    ID_TEACHER(ConstForView.ID_TEACHER),
+    START_TRAINING_DAYS(ConstForView.START_TRAINING_DAYS),
+    TRAINING_DAYS(ConstForView.TRAINING_DAYS);
 
     private String name;
 

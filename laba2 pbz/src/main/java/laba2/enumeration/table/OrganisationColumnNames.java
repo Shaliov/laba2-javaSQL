@@ -1,12 +1,14 @@
 package laba2.enumeration.table;
 
 
+import laba2.enumeration.view.ConstForView;
+
 public enum  OrganisationColumnNames {
-    ID("id"),
-    NAME("название"),
-    ADDRESS("адрес"),
-    PHONE("телефон"),
-    EMAIL("e-mail");
+    ID(ConstForView.ID),
+    NAME(ConstForView.NAME),
+    ADDRESS(ConstForView.ADDRESS),
+    PHONE(ConstForView.PHONE),
+    EMAIL(ConstForView.EMAIL);
 
     private String name;
 

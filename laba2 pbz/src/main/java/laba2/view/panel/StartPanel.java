@@ -1,6 +1,7 @@
 package laba2.view.panel;
 
 
+import laba2.enumeration.view.ConstForView;
 import laba2.view.frame.*;
 
 import javax.swing.*;
@@ -16,7 +17,7 @@ public class StartPanel extends JPanel {
     }
 
     private void addStartBar(JPanel panel) {
-        final JButton organisation = new JButton("организация");
+        final JButton organisation = new JButton(ConstForView.ORGANISATION);
         organisation.setPreferredSize(new Dimension(180,25));
         organisation.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -25,7 +26,7 @@ public class StartPanel extends JPanel {
 
             }
         });
-        JButton course = new JButton("курсы");
+        JButton course = new JButton(ConstForView.COURSE);
         course.setPreferredSize(new Dimension(180,25));
         course.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -33,7 +34,7 @@ public class StartPanel extends JPanel {
                 courseFrame.setVisible(true);
             }
         });
-        JButton price = new JButton("цена");
+        JButton price = new JButton(ConstForView.PRICE);
         price.setPreferredSize(new Dimension(180, 25));
         price.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -41,7 +42,7 @@ public class StartPanel extends JPanel {
                 priceFrame.setVisible(true);
             }
         });
-        JButton teacher = new JButton("преподаватель");
+        JButton teacher = new JButton(ConstForView.TEACHER);
         teacher.setPreferredSize(new Dimension(180,25));
         teacher.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -49,7 +50,7 @@ public class StartPanel extends JPanel {
                 teacherFrame.setVisible(true);
             }
         });
-        JButton document = new JButton("документы");
+        JButton document = new JButton(ConstForView.DOCUMENTS);
         document.setPreferredSize(new Dimension(180,25));
         document.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

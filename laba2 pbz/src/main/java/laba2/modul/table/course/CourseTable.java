@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CourseTable extends AbstractTableModel {
     private List<Course> courseList = DBStorage.getInstance().getCourseList();
-    public static final int column = 6;
+    public static final int column = 7;
 
     public CourseTable() {
     }
@@ -18,6 +18,7 @@ public class CourseTable extends AbstractTableModel {
     public static final String columnNames[] = {
             CourseColumnNames.ID.getName(),
             CourseColumnNames.NAME.getName(),
+            CourseColumnNames.TYPE.getName(),
             CourseColumnNames.TRAINING_DAYS.getName(),
             CourseColumnNames.NUMBER_OF_GROUP.getName(),
             CourseColumnNames.PRICE.getName(),

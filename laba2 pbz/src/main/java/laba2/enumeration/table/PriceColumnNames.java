@@ -1,11 +1,13 @@
 package laba2.enumeration.table;
 
 
+import laba2.enumeration.view.ConstForView;
+
 public enum PriceColumnNames {
-    ID("id"),
-    DATE("день"),
-    PRICE("цена"),
-    PRICE_NDS("цена с учётом НДС");
+    ID(ConstForView.ID),
+    DATE(ConstForView.DAY),
+    PRICE(ConstForView.PRICE),
+    PRICE_NDS(ConstForView.PRICE_NDS);
 
     private String name;
 

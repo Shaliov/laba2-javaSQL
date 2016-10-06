@@ -2,8 +2,8 @@ package laba2.enumeration.view;
 
 
 public enum TeacherSex {
-    МУЖ("мужской"),
-    ЖЕН("женский");
+    МУЖ(ConstForView.MALE),
+    ЖЕН(ConstForView.FEMALE);
 
     private String name;
 

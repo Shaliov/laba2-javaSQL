@@ -1,13 +1,15 @@
 package laba2.enumeration.table;
 
 
+import laba2.enumeration.view.ConstForView;
+
 public enum TeacherColumnNames {
-    ID("id"),
-    FIO("ФИО"),
-    BERTHDAY("День рождения"),
-    SEX("пол"),
-    EDUCATION("образование"),
-    TYPE("тип");
+    ID(ConstForView.ID),
+    FIO(ConstForView.FIO),
+    BERTHDAY(ConstForView.BERTHDAY),
+    SEX(ConstForView.SEX),
+    EDUCATION(ConstForView.EDUCATION),
+    TYPE(ConstForView.TYPE);
 
     private String name;
 

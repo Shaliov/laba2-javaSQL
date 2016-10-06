@@ -2,10 +2,10 @@ package laba2.enumeration.view;
 
 
 public enum TeacherEducation {
-    ВЫС("высшее"),
-    СР("среднее"),
-    БЗ("без образования"),
-    СРСПЕЦ("средне специальное");
+    ВЫС(ConstForView.HIGER),
+    СР(ConstForView.SECONDARY),
+    БЗ(ConstForView.WITHOUT_EDUCATION),
+    СРСПЕЦ(ConstForView.SECONDARY_SPECIAL);
 
     private String name;
 

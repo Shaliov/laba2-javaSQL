@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/enumeration/table/OrganisationColumnNames.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/enumeration/table/PriceColumnNames.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/enumeration/table/TeacherColumnNames.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/laba2/enumeration/view/ConstForView.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/enumeration/view/CourseType.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/enumeration/view/TeacherEducation.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/enumeration/view/TeacherSex.java" charset="UTF-8" />

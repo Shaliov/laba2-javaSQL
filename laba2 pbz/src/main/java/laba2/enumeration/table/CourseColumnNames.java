@@ -1,14 +1,16 @@
 package laba2.enumeration.table;
 
 
+import laba2.enumeration.view.ConstForView;
+
 public enum  CourseColumnNames {
-    ID("id"),
-    NAME("название"),
-    TYPE("тип"),
-    TRAINING_DAYS("количсество дней обучения"),
-    NUMBER_OF_GROUP("количество обучаемых"),
-    PRICE("цена"),
-    PRICE_NDS("цена с учётом НДС");
+    ID(ConstForView.ID),
+    NAME(ConstForView.NAME),
+    TYPE(ConstForView.TYPE),
+    TRAINING_DAYS(ConstForView.TRAINING_DAYS),
+    NUMBER_OF_GROUP(ConstForView.NUMBER_OF_GROUP),
+    PRICE(ConstForView.PRICE),
+    PRICE_NDS(ConstForView.PRICE_NDS);
 
     private String name;
 
