@@ -1,11 +1,11 @@
-package laba2.view.frame.Dialog;
+package laba2.view.frame.Dialog.course;
 
 
-import com.sun.corba.se.spi.orbutil.fsm.Input;
-import laba2.enumeration.SQL.ConstForCourse;
+import laba2.controller.AddDialogController;
 import laba2.enumeration.view.ConstForView;
 import laba2.enumeration.view.CourseType;
-import laba2.modul.dataBase.DBWorker;
+import laba2.modul.dataBase.DBStorage;
+import laba2.modul.table.course.CourseTable;
 import laba2.view.fields.FieldsCourse;
 
 import javax.swing.*;
@@ -13,18 +13,14 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 
 public class AddDialogCourseTable extends JFrame {
     private FieldsCourse fieldsCourse;
+    private AddDialogController addDialogController;
 
-    public AddDialogCourseTable() {
+    public AddDialogCourseTable(CourseTable courseTable) {
         setName("введите данный о курсах");
-
         Box box = Box.createVerticalBox();
         fieldsCourse = new FieldsCourse();
 
@@ -41,6 +37,8 @@ public class AddDialogCourseTable extends JFrame {
         setResizable(false);
         setPreferredSize(new Dimension(600, box.getHeight()));
         setSize(new Dimension(400, box.getHeight() + 20));
+        addDialogController = new AddDialogController();
+        addDialogController.setCourseTable(courseTable);
     }
 
     private void okCancle(Box box) {
@@ -50,33 +48,30 @@ public class AddDialogCourseTable extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String courseName = fieldsCourse.getNameJTextField().getText();
                 String courseTrainingDays = fieldsCourse.getCourseTrainingDaysJTextField().getText();
-                String courseType = CourseType.valueOf(fieldsCourse.getCourseTypeJComboBox().getSelectedItem().toString()).getName();
+                int courseType = CourseType.valueOf(fieldsCourse.getCourseTypeJComboBox().getSelectedItem().toString()).getId();
                 String courseNumberOfGroup = fieldsCourse.getCourseNumberOfGroupJTextField().getText();
                 String price = fieldsCourse.getPriceJTextField().getText();
                 if (courseName.isEmpty() == false &&
                         courseTrainingDays.isEmpty() == false &&
                         courseNumberOfGroup.isEmpty() == false &&
                         price.isEmpty() == false) {
-                    try {
-                        DBWorker.getInstance().openConnection();
-                        PreparedStatement preparedStatement = DBWorker.getInstance().getConnection().prepareStatement(ConstForCourse.INSERT_NEW);
-                        preparedStatement.setString(1, courseName.toString());
-                        preparedStatement.setInt(2, Integer.parseInt(courseType));
-                        preparedStatement.setInt(3, Integer.parseInt(courseTrainingDays));
-                        preparedStatement.setInt(4, Integer.parseInt(courseNumberOfGroup));
-                        preparedStatement.setInt(5, Integer.parseInt(price));
-                        preparedStatement.setDouble(6, Integer.parseInt(price) * 1.20);
 
-                        preparedStatement.execute();
+                    addDialogController.addCourse(courseName, courseType, courseTrainingDays, courseNumberOfGroup, price);
 
-                        DBWorker.getInstance().closeConnection();
-                    }
-                    catch (SQLException e1) {
-                        e1.printStackTrace();
-                    } finally {
-                        DBWorker.getInstance().closeConnection();
-                        }
-                    }
+
+                    fieldsCourse.getNameJTextField().setText("");
+                    fieldsCourse.getCourseTrainingDaysJTextField().setText("");
+                    fieldsCourse.getCourseNumberOfGroupJTextField().setText("");
+                    fieldsCourse.getPriceJTextField().setText("");
+
+                    } else {
+                    fieldsCourse.getNameJTextField().setText("");
+                    fieldsCourse.getCourseTrainingDaysJTextField().setText("");
+                    fieldsCourse.getCourseNumberOfGroupJTextField().setText("");
+                    fieldsCourse.getPriceJTextField().setText("");
+                }
+
+
                 }
             }
 
@@ -90,6 +85,8 @@ public class AddDialogCourseTable extends JFrame {
                     fieldsCourse.getCourseTrainingDaysJTextField().setText("");
                     fieldsCourse.getCourseNumberOfGroupJTextField().setText("");
                     fieldsCourse.getPriceJTextField().setText("");
+                    DBStorage.getInstance().updateCourseList();
+
                     dispose();
                 }
             }

@@ -16,6 +16,21 @@ public class Price {
         priceNDS = price * NDS;
     }
 
+    public Object get(int index) {
+        switch (index) {
+            case 0:
+                return getId();
+            case 1:
+                return getDate();
+            case 2:
+                return getPrice();
+            case 3:
+                return getPriceNDS();
+            default:
+                return "";
+        }
+    }
+
     public Date getDate() {
         return date;
     }

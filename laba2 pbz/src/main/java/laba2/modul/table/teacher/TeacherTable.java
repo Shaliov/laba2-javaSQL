@@ -31,7 +31,7 @@ public class TeacherTable extends AbstractTableModel {
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         Teacher teacher = teacherList.get(rowIndex);
-        return teacherList.get(columnIndex);
+        return teacher.get(columnIndex);
     }
 
     public int getRowCount() {

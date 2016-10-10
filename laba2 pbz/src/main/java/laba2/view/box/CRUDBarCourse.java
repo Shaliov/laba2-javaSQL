@@ -3,6 +3,7 @@ package laba2.view.box;
 
 import laba2.controller.CourseController;
 import laba2.enumeration.view.ConstForView;
+import laba2.modul.table.course.CourseTable;
 
 
 import javax.swing.*;
@@ -13,7 +14,6 @@ public class CRUDBarCourse extends Box {
     private CourseController courseController;
     public CRUDBarCourse() {
         super(0);
-
     }
 
     public void addCourse() {
@@ -36,6 +36,16 @@ public class CRUDBarCourse extends Box {
             }
         });
         add(removeEntry);
+    }
+    
+    public void renameCourse() {
+        JButton renameEntry = new JButton(ConstForView.RENAME);
+        renameEntry.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                courseController.renameDialogCourseTable();
+            }
+        });
+        add(renameEntry);
     }
 
 

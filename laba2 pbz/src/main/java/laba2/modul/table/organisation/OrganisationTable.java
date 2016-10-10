@@ -30,7 +30,7 @@ public class OrganisationTable extends AbstractTableModel {
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         Organisation organisation = organisationList.get(rowIndex);
-        return organisationList.get(columnIndex);
+        return organisation.get(columnIndex);
     }
 
     public int getRowCount() {

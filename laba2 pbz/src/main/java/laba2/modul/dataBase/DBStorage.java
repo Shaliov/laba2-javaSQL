@@ -1,6 +1,7 @@
 package laba2.modul.dataBase;
 
 
+import laba2.controller.DBStorageController;
 import laba2.modul.table.course.Course;
 import laba2.modul.table.document.Document;
 import laba2.modul.table.organisation.Organisation;
@@ -12,6 +13,7 @@ import java.util.List;
 
 public class DBStorage {
     private static DBStorage instance = null;
+    private DBStorageController dbStorageController;
     private List<Course> courseList = new ArrayList();
     private List<Document> documentList = new ArrayList();
     private List<Organisation> organisationList = new ArrayList();
@@ -19,6 +21,7 @@ public class DBStorage {
     private List<Teacher> teacherList = new ArrayList();
 
     public DBStorage() {
+        dbStorageController = new DBStorageController();
     }
 
     public static DBStorage getInstance() {
@@ -26,6 +29,11 @@ public class DBStorage {
             instance = new DBStorage();
         }
         return instance;
+    }
+
+    public void updateCourseList() {
+        courseList.clear();
+        dbStorageController.fillCourseList(courseList);
     }
 
     public List<Course> getCourseList() {
@@ -67,4 +75,5 @@ public class DBStorage {
     public void setTeacherList(List<Teacher> teacherList) {
         this.teacherList = teacherList;
     }
+
 }

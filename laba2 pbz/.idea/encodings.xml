@@ -19,7 +19,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/modul/table/teacher/TeacherTable.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/view/fields/FieldsCourse.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/view/frame/CourseFrame.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/laba2/view/frame/Dialog/AddDialogCourseTable.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/laba2/view/frame/Dialog/course/AddDialogCourseTable.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/view/frame/DocumentFrame.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/view/frame/OrganisationFrame.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/laba2/view/frame/PriceFrame.java" charset="UTF-8" />

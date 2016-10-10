@@ -3,7 +3,6 @@ package laba2.modul.table.course;
 
 import laba2.modul.dataBase.DBStorage;
 import laba2.enumeration.table.CourseColumnNames;
-import laba2.modul.table.price.Price;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
@@ -33,7 +32,7 @@ public class CourseTable extends AbstractTableModel {
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         Course course = courseList.get(rowIndex);
-        return courseList.get(columnIndex);
+        return course.get(columnIndex);
     }
 
     public int getRowCount() {

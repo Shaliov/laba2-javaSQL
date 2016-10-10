@@ -23,11 +23,13 @@ public class CourseFrame extends JFrame {
         CourseTable courseTable = new CourseTable();
         TableComponent tableComponent = new TableComponent(courseTable);
 
-        courseController = new CourseController();
+        courseController = new CourseController(courseTable);
         CRUDBarCourse crudBarCourse = new CRUDBarCourse();
         crudBarCourse.setCourseController(courseController);
         crudBarCourse.addCourse();
         crudBarCourse.removeCourse();
+        crudBarCourse.renameCourse();
+
         tableComponent.setVisible(true);
         add(tableComponent);
         add(crudBarCourse, "South");

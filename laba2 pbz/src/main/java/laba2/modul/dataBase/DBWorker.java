@@ -1,4 +1,5 @@
 package laba2.modul.dataBase;
+
 import java.sql.*;
 
 public class DBWorker {
@@ -10,7 +11,6 @@ public class DBWorker {
     private Connection connection;
 
     public DBWorker() {
-
     }
 
     public void openConnection() {
@@ -20,6 +20,7 @@ public class DBWorker {
             e.printStackTrace();
         }
     }
+
 
     public void closeConnection() {
         try {
@@ -39,4 +40,5 @@ public class DBWorker {
     public Connection getConnection() {
         return connection;
     }
+
 }

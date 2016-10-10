@@ -29,7 +29,7 @@ public class DocumentTable extends AbstractTableModel {
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         Document document = documentList.get(rowIndex);
-        return documentList.get(columnIndex);
+        return document.get(columnIndex);
     }
 
     public int getRowCount() {

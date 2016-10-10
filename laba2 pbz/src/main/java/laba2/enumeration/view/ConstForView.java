@@ -1,7 +1,7 @@
 package laba2.enumeration.view;
 
 
-public class ConstForView {
+public interface ConstForView {
     public static final String ADD = "добавить";
 
     public static final String ID  = "id";
@@ -23,8 +23,8 @@ public class ConstForView {
     public static final String SEX  = "пол";
     public static final String EDUCATION  = "образование";
 
-    public static final String IT = "1";
-    public static final String MANAGER = "2";
+    public static final String IT = "информационные технологии";
+    public static final String MANAGER = "менеджмент";
 
     public static final String HIGER = "высшее";
     public static final String HIGHEST  = "высшая";
@@ -53,6 +53,7 @@ public class ConstForView {
     public static final String OK  = "ок";
     public static final String CLOSE  = "закрыть";
     public static final String REMOVE  = "удалить";
+    public static final String RENAME  = "переименовать";
 
 
 }

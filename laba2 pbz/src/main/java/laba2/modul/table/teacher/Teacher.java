@@ -30,6 +30,25 @@ public class Teacher {
         this.type = type;
     }
 
+    public Object get(int index) {
+        switch (index) {
+            case 0:
+                return getId();
+            case 1:
+                return getFio();
+            case 2:
+                return getDateOfBerthd();
+            case 3:
+                return getSex().getName();
+            case 4:
+                return getEducation().getName();
+            case 5:
+                return getType().getName();
+            default:
+                return "";
+        }
+    }
+
     public String getName() {
         return name;
     }

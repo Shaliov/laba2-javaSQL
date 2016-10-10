@@ -29,7 +29,7 @@ public class PriceTable extends AbstractTableModel {
 
     public Object getValueAt(int rowIndex, int columnIndex) {
         Price price = priceList.get(rowIndex);
-        return priceList.get(columnIndex);
+        return price.get(columnIndex);
     }
 
     public int getRowCount() {

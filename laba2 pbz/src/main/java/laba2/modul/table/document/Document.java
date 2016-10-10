@@ -4,7 +4,6 @@ package laba2.modul.table.document;
 import java.util.Date;
 
 public class Document {
-    private int id;
     private int courseId;
     private int tecaherId;
     private Date startTrainigDate;
@@ -15,6 +14,21 @@ public class Document {
         this.tecaherId = tecaherId;
         this.startTrainigDate = startTrainigDate;
         this.courseTrainigDays = courseTrainigDays;
+    }
+
+    public Object get(int index) {
+        switch (index) {
+            case 0:
+                return getCourseId();
+            case 1:
+                return getTecaherId();
+            case 2:
+                return getStartTrainigDate();
+            case 3:
+                return getCourseTrainigDays();
+            default:
+                return "";
+        }
     }
 
     public int getCourseId() {
@@ -33,11 +47,4 @@ public class Document {
         return courseTrainigDays;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }

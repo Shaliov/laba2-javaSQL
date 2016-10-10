@@ -15,6 +15,23 @@ public class Organisation {
         this.eMail = eMail;
     }
 
+    public Object get(int index) {
+        switch (index) {
+            case 0:
+                return getId();
+            case 1:
+                return getName();
+            case 2:
+                return getAddress();
+            case 3:
+                return getPhone();
+            case 4:
+                return geteMail();
+            default:
+                return "";
+        }
+    }
+
     public String getName() {
         return name;
     }
