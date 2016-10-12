@@ -12,8 +12,10 @@ import java.awt.event.ActionListener;
 
 public class CRUDBarCourse extends Box {
     private CourseController courseController;
-    public CRUDBarCourse() {
+    public CRUDBarCourse(CourseController courseController)
+    {
         super(0);
+        this.courseController = courseController;
     }
 
     public void addCourse() {
@@ -46,10 +48,5 @@ public class CRUDBarCourse extends Box {
             }
         });
         add(renameEntry);
-    }
-
-
-    public void setCourseController(CourseController courseController) {
-        this.courseController = courseController;
     }
 }

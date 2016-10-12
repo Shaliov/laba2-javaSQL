@@ -24,7 +24,7 @@ public class FieldsCourse {
     public void courseID(Box box){
         Box boxCourseID = Box.createHorizontalBox();
         JLabel courseIDLabel = new JLabel(ConstForView.ID);
-        courseIDLabel.setPreferredSize(new Dimension(260, courseIDLabel.getHeight())); // ???
+        courseIDLabel.setPreferredSize(new Dimension(260, courseIDLabel.getHeight()));
         idJTextField = new JTextField(20);
 
         boxCourseID.add(courseIDLabel);
@@ -36,8 +36,8 @@ public class FieldsCourse {
 
     public void courseName(Box box){
         Box boxCourseName = Box.createHorizontalBox();
-        JLabel courseNameLabel = new JLabel(ConstForView.NAME_COURSE);
-        courseNameLabel.setPreferredSize(new Dimension(230, courseNameLabel.getHeight())); // ???
+        JLabel courseNameLabel = new JLabel(ConstForView.NAME);
+        courseNameLabel.setPreferredSize(new Dimension(230, courseNameLabel.getHeight()));
         nameJTextField = new JTextField(20);
 
         boxCourseName.add(courseNameLabel);
@@ -49,7 +49,7 @@ public class FieldsCourse {
     public void courseType(Box box) {
         Box boxCourseType = Box.createHorizontalBox();
         JLabel courseTypeLabel = new JLabel(ConstForView.COURSE_TYPE);
-        courseTypeLabel.setPreferredSize(new Dimension(300, courseTypeLabel.getHeight())); // ???
+        courseTypeLabel.setPreferredSize(new Dimension(300, courseTypeLabel.getHeight()));
         courseTypeJComboBox = new JComboBox<CourseType>(CourseType.values());
 
         boxCourseType.add(courseTypeLabel);
@@ -61,7 +61,7 @@ public class FieldsCourse {
     public void courseTraningDays(Box box) {
         Box boxCourseTrainingDays= Box.createHorizontalBox();
         JLabel courseTrainingDaysJLabel = new JLabel(ConstForView.TRAINING_DAYS);
-        courseTrainingDaysJLabel.setPreferredSize(new Dimension(210, courseTrainingDaysJLabel.getHeight())); // ???
+        courseTrainingDaysJLabel.setPreferredSize(new Dimension(210, courseTrainingDaysJLabel.getHeight()));
         courseTrainingDaysJTextField = new JTextField(20);
 
         boxCourseTrainingDays.add(courseTrainingDaysJLabel);
@@ -73,7 +73,7 @@ public class FieldsCourse {
     public void courseNumberOfGroup(Box box) {
         Box boxNumberOfGroup = Box.createHorizontalBox();
         JLabel courseNameOfGroupJLabel = new JLabel(ConstForView.NUMBER_OF_GROUP);
-        courseNameOfGroupJLabel.setPreferredSize(new Dimension(215, courseNameOfGroupJLabel.getHeight())); // ???
+        courseNameOfGroupJLabel.setPreferredSize(new Dimension(215, courseNameOfGroupJLabel.getHeight()));
         courseNumberOfGroupJTextField = new JTextField(20);
 
         boxNumberOfGroup.add(courseNameOfGroupJLabel);
@@ -85,7 +85,7 @@ public class FieldsCourse {
     public void coursePrice(Box box) {
         Box boxPrice = Box.createHorizontalBox();
         JLabel priceJLabel = new JLabel(ConstForView.PRICE);
-        priceJLabel.setPreferredSize(new Dimension(250, priceJLabel.getHeight())); // ???
+        priceJLabel.setPreferredSize(new Dimension(250, priceJLabel.getHeight()));
         priceJTextField = new JTextField(20);
 
         boxPrice.add(priceJLabel);

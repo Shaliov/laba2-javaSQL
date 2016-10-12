@@ -33,8 +33,8 @@ public class CourseController {
         if(renameDialogCourseTable == null){
             renameDialogCourseTable = new RenameDialogCourseTable(courseTable);
         }
-        renameDialogCourseTable.find();
         renameDialogCourseTable.setVisible(true);
+        renameDialogCourseTable.find();
     }
 
 

@@ -8,6 +8,9 @@ public class Organisation {
     private int phone;
     private String eMail;
 
+    public Organisation() {
+    }
+
     public Organisation(String name, String address, int phone, String eMail) {
         this.name = name;
         this.address = address;
@@ -54,5 +57,21 @@ public class Organisation {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
     }
 }

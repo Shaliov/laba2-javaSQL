@@ -24,8 +24,7 @@ public class CourseFrame extends JFrame {
         TableComponent tableComponent = new TableComponent(courseTable);
 
         courseController = new CourseController(courseTable);
-        CRUDBarCourse crudBarCourse = new CRUDBarCourse();
-        crudBarCourse.setCourseController(courseController);
+        CRUDBarCourse crudBarCourse = new CRUDBarCourse(courseController);
         crudBarCourse.addCourse();
         crudBarCourse.removeCourse();
         crudBarCourse.renameCourse();

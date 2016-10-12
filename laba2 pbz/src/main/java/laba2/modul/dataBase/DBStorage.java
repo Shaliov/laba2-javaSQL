@@ -36,6 +36,11 @@ public class DBStorage {
         dbStorageController.fillCourseList(courseList);
     }
 
+    public void updateOrganisationList() {
+        organisationList.clear();
+        dbStorageController.fillOrganisationList(organisationList);
+    }
+
     public List<Course> getCourseList() {
         return courseList;
     }

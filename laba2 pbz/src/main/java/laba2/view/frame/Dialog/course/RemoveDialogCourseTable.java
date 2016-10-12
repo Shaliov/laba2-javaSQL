@@ -42,7 +42,7 @@ public class RemoveDialogCourseTable extends JFrame {
         JButton okButton = new JButton(ConstForView.OK);
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!fieldsCourse.getIdJTextField().getText().equals("")) {
+                if (!fieldsCourse.getIdJTextField().getText().equals("")) {
                     removeDialogController.removeCourse(Integer.parseInt(fieldsCourse.getIdJTextField().getText()));
                     fieldsCourse.getIdJTextField().setText("");
                 }

@@ -1,7 +1,7 @@
 package laba2.controller;
 
 
-import laba2.enumeration.SQL.ConstForCourse;
+import laba2.enumeration.SQL.ConstForSQL;
 import laba2.modul.dataBase.DBStorage;
 import laba2.modul.dataBase.DBWorker;
 import laba2.modul.table.course.CourseTable;
@@ -27,7 +27,7 @@ public class RenameDialogController {
     public void renameCourse(int id, String courseName, int courseType , String courseTrainingDays, String courseNumberOfGroup, String price ) {
         try {
             DBWorker.getInstance().openConnection();
-            PreparedStatement preparedStatement = DBWorker.getInstance().getConnection().prepareStatement(ConstForCourse.RENAME_COURSE);
+            PreparedStatement preparedStatement = DBWorker.getInstance().getConnection().prepareStatement(ConstForSQL.RENAME_COURSE);
             preparedStatement.setString(1, courseName.toString());
             preparedStatement.setInt(2, courseType);
             preparedStatement.setInt(3, Integer.parseInt(courseTrainingDays));
@@ -45,6 +45,27 @@ public class RenameDialogController {
             DBStorage.getInstance().updateCourseList();
             DBWorker.getInstance().closeConnection();
             courseTable.fireTableDataChanged();
+        }
+    }
+
+    public void renameOrganisation(int id, String name, String adres, int phone, String mail) {
+        try {
+            DBWorker.getInstance().openConnection();
+            PreparedStatement preparedStatement = DBWorker.getInstance().getConnection().prepareStatement(ConstForSQL.RENAME_ORGANISATION);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, adres);
+            preparedStatement.setInt(3, phone);
+            preparedStatement.setString(4, mail);
+            preparedStatement.setInt(5, id);
+            preparedStatement.execute();
+
+        }
+        catch (SQLException e1) {
+            e1.printStackTrace();
+        } finally {
+            DBStorage.getInstance().updateOrganisationList();
+            DBWorker.getInstance().closeConnection();
+            organisationTable.fireTableDataChanged();
         }
     }
 

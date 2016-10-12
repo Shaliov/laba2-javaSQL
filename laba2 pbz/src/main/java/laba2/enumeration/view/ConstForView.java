@@ -7,6 +7,7 @@ public interface ConstForView {
     public static final String ID  = "id";
     public static final String NAME  = "название";
     public static final String TYPE  = "тип";
+    public static final String DATE  = "дата";
 
     public static final String ID_COURSE  = "id курса";
     public static final String ID_TEACHER  = "id преподавателя";
@@ -38,12 +39,12 @@ public interface ConstForView {
     public static final String FIRST  = "первая";
     public static final String SECOND  = "вторая";
 
-    public static final String NAME_COURSE  = "название курсов";
     public static final String COURSE_TYPE  = "тип курсов";
     public static final String TRAINING_DAYS  = "количество дней обучения";
     public static final String NUMBER_OF_GROUP  = "количсество студентов";
     public static final String PRICE  = "цена";
     public static final String PRICE_NDS  = "цена с учётом НДС";
+
 
     public static final String ORGANISATION  = "организация";
     public static final String COURSE  = "курсы";

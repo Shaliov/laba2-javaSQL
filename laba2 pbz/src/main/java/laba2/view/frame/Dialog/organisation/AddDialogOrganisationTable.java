@@ -3,11 +3,9 @@ package laba2.view.frame.Dialog.organisation;
 
 import laba2.controller.AddDialogController;
 import laba2.enumeration.view.ConstForView;
-import laba2.enumeration.view.CourseType;
-import laba2.modul.dataBase.DBStorage;
-import laba2.modul.table.course.CourseTable;
 import laba2.modul.table.organisation.OrganisationTable;
 import laba2.view.fields.FieldsCourse;
+import laba2.view.fields.FieldsOrganisation;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -16,19 +14,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AddDialogOrganisationTable extends JFrame {
-    private FieldsCourse fieldsCourse;
+    private FieldsOrganisation fieldsOrganisation;
     private AddDialogController addDialogController;
 
     public AddDialogOrganisationTable(OrganisationTable organisationTable) {
         setName("введите данный о организации");
         Box box = Box.createVerticalBox();
-        fieldsCourse = new FieldsCourse();
+        fieldsOrganisation = new FieldsOrganisation();
 
-        fieldsCourse.courseName(box);
-        fieldsCourse.courseType(box);
-        fieldsCourse.courseTraningDays(box);
-        fieldsCourse.courseNumberOfGroup(box);
-        fieldsCourse.coursePrice(box);
+        fieldsOrganisation.organisationName(box);
+        fieldsOrganisation.organisationAddres(box);
+        fieldsOrganisation.organisationPhone(box);
+        fieldsOrganisation.organisationMail(box);
         okCancle(box);
 
         box.setBorder(new EmptyBorder(12, 12, 12, 12));
@@ -45,21 +42,29 @@ public class AddDialogOrganisationTable extends JFrame {
         Box okBox = Box.createHorizontalBox();
         JButton okButton = new JButton(ConstForView.OK);
         okButton.addActionListener(new ActionListener() {
-                                       public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
+                String organisationName = fieldsOrganisation.getNameJTextField().getText();
+                String organisationAdres = fieldsOrganisation.getAddresJTextField().getText();
+                String organisationPhone = fieldsOrganisation.getPhoneJTextField().getText();
+                String organisationMail = fieldsOrganisation.getMailJTextField().getText();
+                if(!organisationName.isEmpty() &&
+                        !organisationAdres.isEmpty() &&
+                        !organisationPhone.isEmpty() &&
+                        !organisationMail.isEmpty()) {
 
+                    addDialogController.addOrganisation(organisationName, organisationAdres, Integer.parseInt(organisationPhone), organisationMail);
+                    freeJTextField();
 
-                                       }
-                                   }
-
-        );
+                }
+            }
+        });
         JButton cancelButton = new JButton(ConstForView.CLOSE);
         cancelButton.addActionListener(new ActionListener() {
-                                           public void actionPerformed(ActionEvent e) {
-                                               dispose();
-                                           }
-                                       }
-
-        );
+            public void actionPerformed(ActionEvent e) {
+                freeJTextField();
+                dispose();
+            }
+        });
 
 
         okBox.add(Box.createHorizontalGlue());
@@ -69,5 +74,11 @@ public class AddDialogOrganisationTable extends JFrame {
         box.add(okBox);
         box.add(Box.createVerticalStrut(12));
         box.add(Box.createHorizontalStrut(24));
+    }
+    private void freeJTextField() {
+        fieldsOrganisation.getNameJTextField().setText("");
+        fieldsOrganisation.getAddresJTextField().setText("");
+        fieldsOrganisation.getPhoneJTextField().setText("");
+        fieldsOrganisation.getMailJTextField().setText("");
     }
 }

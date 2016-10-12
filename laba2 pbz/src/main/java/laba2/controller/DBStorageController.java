@@ -1,9 +1,10 @@
 package laba2.controller;
 
 
-import laba2.enumeration.SQL.ConstForCourse;
+import laba2.enumeration.SQL.ConstForSQL;
 import laba2.modul.dataBase.DBWorker;
 import laba2.modul.table.course.Course;
+import laba2.modul.table.organisation.Organisation;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +20,7 @@ public class DBStorageController {
         try {
             DBWorker.getInstance().openConnection();
             Statement statement = DBWorker.getInstance().getConnection().createStatement();
-            ResultSet resultSet = statement.executeQuery(ConstForCourse.SELECT_ALL_FROM_COURSE);
+            ResultSet resultSet = statement.executeQuery(ConstForSQL.SELECT_ALL_FROM_COURSE);
             while (resultSet.next()) {
                 Course course = new Course();
                 course.setId(resultSet.getInt(1));
@@ -31,7 +32,30 @@ public class DBStorageController {
                 course.setPriceNDS(resultSet.getDouble(7));
 
                 courseList.add(course);
+            }
 
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBWorker.getInstance().closeConnection();
+        }
+    }
+
+    public void fillOrganisationList(List<Organisation> organisationList) {
+        try {
+            DBWorker.getInstance().openConnection();
+            Statement statement = DBWorker.getInstance().getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery(ConstForSQL.SELECT_ALL_FROM_ORGANISATION);
+            while (resultSet.next()) {
+                Organisation organisation = new Organisation();
+                organisation.setId(resultSet.getInt(1));
+                organisation.setName(resultSet.getString(2));
+                organisation.setAddress(resultSet.getString(3));
+                organisation.setPhone(resultSet.getInt(4));
+                organisation.seteMail(resultSet.getString(5));
+
+                organisationList.add(organisation);
             }
 
 

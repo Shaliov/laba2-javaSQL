@@ -17,12 +17,13 @@ import java.awt.event.ActionListener;
 
 public class RenameDialogCourseTable extends JFrame {
     private FieldsCourse fieldsCourse;
+    private RenameDialogCourseTable renameDialogCourseTable;
     private RenameDialogController renameDialogController;
     private int id;
 
     public RenameDialogCourseTable(CourseTable courseTable) {
         setName("данные для редоктирования");
-
+        renameDialogCourseTable = this;
         Box box = Box.createVerticalBox();
 
         fieldsCourse = new FieldsCourse();
@@ -47,16 +48,25 @@ public class RenameDialogCourseTable extends JFrame {
     }
 
     public void find() {
-        id = Integer.parseInt(JOptionPane.showInputDialog("id:").trim());
-        for (Course course : DBStorage.getInstance().getCourseList()) {
-            if (course.getId() == id) {
-                fieldsCourse.getNameJTextField().setText(course.getName());
-                fieldsCourse.getCourseTrainingDaysJTextField().setText(String.valueOf(course.getTrainingDays()));
-                fieldsCourse.getCourseTypeJComboBox().setSelectedItem(course.getType());
-                fieldsCourse.getCourseNumberOfGroupJTextField().setText(String.valueOf(course.getNumberOfGroup()));
-                fieldsCourse.getPriceJTextField().setText(String.valueOf(course.getPrice()));
+        try {
+            id = Integer.parseInt(JOptionPane.showInputDialog("id:").trim());
+            for (Course course : DBStorage.getInstance().getCourseList()) {
+                if (course.getId() == id) {
+                    fieldsCourse.getNameJTextField().setText(course.getName());
+                    fieldsCourse.getCourseTrainingDaysJTextField().setText(String.valueOf(course.getTrainingDays()));
+                    fieldsCourse.getCourseTypeJComboBox().setSelectedItem(course.getType());
+                    fieldsCourse.getCourseNumberOfGroupJTextField().setText(String.valueOf(course.getNumberOfGroup()));
+                    fieldsCourse.getPriceJTextField().setText(String.valueOf(course.getPrice()));
+                }
+
             }
 
+        } catch (NullPointerException e) {
+            if (id == 0) {
+                renameDialogCourseTable.dispose();
+            } else {
+                find();
+            }
         }
     }
 
@@ -72,18 +82,16 @@ public class RenameDialogCourseTable extends JFrame {
                 String price = fieldsCourse.getPriceJTextField().getText();
 
                 renameDialogController.renameCourse(id, courseName, courseType, courseTrainingDays, courseNumberOfGroup, price);
-
+                freeJTextField();
                 find();
+
 
             }
         });
         JButton cancelButton = new JButton(ConstForView.CLOSE);
         cancelButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                fieldsCourse.getNameJTextField().setText("");
-                fieldsCourse.getCourseTrainingDaysJTextField().setText("");
-                fieldsCourse.getCourseNumberOfGroupJTextField().setText("");
-                fieldsCourse.getPriceJTextField().setText("");
+                freeJTextField();
                 dispose();
             }
         });
@@ -96,5 +104,12 @@ public class RenameDialogCourseTable extends JFrame {
         box.add(okBox);
         box.add(Box.createVerticalStrut(12));
         box.add(Box.createHorizontalStrut(24));
+    }
+
+    private void freeJTextField() {
+        fieldsCourse.getNameJTextField().setText("");
+        fieldsCourse.getCourseTrainingDaysJTextField().setText("");
+        fieldsCourse.getCourseNumberOfGroupJTextField().setText("");
+        fieldsCourse.getPriceJTextField().setText("");
     }
 }

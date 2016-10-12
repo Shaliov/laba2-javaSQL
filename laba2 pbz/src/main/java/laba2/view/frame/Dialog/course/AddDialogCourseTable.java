@@ -45,61 +45,57 @@ public class AddDialogCourseTable extends JFrame {
         Box okBox = Box.createHorizontalBox();
         JButton okButton = new JButton(ConstForView.OK);
         okButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String courseName = fieldsCourse.getNameJTextField().getText();
-                String courseTrainingDays = fieldsCourse.getCourseTrainingDaysJTextField().getText();
-                int courseType = CourseType.valueOf(fieldsCourse.getCourseTypeJComboBox().getSelectedItem().toString()).getId();
-                String courseNumberOfGroup = fieldsCourse.getCourseNumberOfGroupJTextField().getText();
-                String price = fieldsCourse.getPriceJTextField().getText();
-                if (courseName.isEmpty() == false &&
-                        courseTrainingDays.isEmpty() == false &&
-                        courseNumberOfGroup.isEmpty() == false &&
-                        price.isEmpty() == false) {
+                                       public void actionPerformed(ActionEvent e) {
+                                           String courseName = fieldsCourse.getNameJTextField().getText();
+                                           String courseTrainingDays = fieldsCourse.getCourseTrainingDaysJTextField().getText();
+                                           int courseType = CourseType.valueOf(fieldsCourse.getCourseTypeJComboBox().getSelectedItem().toString()).getId();
+                                           String courseNumberOfGroup = fieldsCourse.getCourseNumberOfGroupJTextField().getText();
+                                           String price = fieldsCourse.getPriceJTextField().getText();
+                                           if (!courseName.isEmpty() &&
+                                                   !courseTrainingDays.isEmpty() &&
+                                                   !courseNumberOfGroup.isEmpty() &&
+                                                   !price.isEmpty()) {
 
-                    addDialogController.addCourse(courseName, courseType, courseTrainingDays, courseNumberOfGroup, price);
+                                               addDialogController.addCourse(courseName, courseType, courseTrainingDays, courseNumberOfGroup, price);
+                                               freeJTextField();
 
-
-                    fieldsCourse.getNameJTextField().setText("");
-                    fieldsCourse.getCourseTrainingDaysJTextField().setText("");
-                    fieldsCourse.getCourseNumberOfGroupJTextField().setText("");
-                    fieldsCourse.getPriceJTextField().setText("");
-
-                    } else {
-                    fieldsCourse.getNameJTextField().setText("");
-                    fieldsCourse.getCourseTrainingDaysJTextField().setText("");
-                    fieldsCourse.getCourseNumberOfGroupJTextField().setText("");
-                    fieldsCourse.getPriceJTextField().setText("");
-                }
+                                           } else {
+                                               freeJTextField();
+                                           }
 
 
-                }
-            }
+                                       }
+                                   }
 
-            );
-            JButton cancelButton = new JButton(ConstForView.CLOSE);
-            cancelButton.addActionListener(new
+        );
+        JButton cancelButton = new JButton(ConstForView.CLOSE);
+        cancelButton.addActionListener(new
 
-            ActionListener() {
-                public void actionPerformed (ActionEvent e){
-                    fieldsCourse.getNameJTextField().setText("");
-                    fieldsCourse.getCourseTrainingDaysJTextField().setText("");
-                    fieldsCourse.getCourseNumberOfGroupJTextField().setText("");
-                    fieldsCourse.getPriceJTextField().setText("");
-                    DBStorage.getInstance().updateCourseList();
+                                               ActionListener() {
+                                                   public void actionPerformed(ActionEvent e) {
+                                                       freeJTextField();
+                                                       DBStorage.getInstance().updateCourseList();
 
-                    dispose();
-                }
-            }
+                                                       dispose();
+                                                   }
+                                               }
 
-            );
+        );
 
 
-            okBox.add(Box.createHorizontalGlue());
-            okBox.add(okButton);
-            okBox.add(Box.createHorizontalStrut(12));
-            okBox.add(cancelButton);
-            box.add(okBox);
-            box.add(Box.createVerticalStrut(12));
-            box.add(Box.createHorizontalStrut(24));
-        }
+        okBox.add(Box.createHorizontalGlue());
+        okBox.add(okButton);
+        okBox.add(Box.createHorizontalStrut(12));
+        okBox.add(cancelButton);
+        box.add(okBox);
+        box.add(Box.createVerticalStrut(12));
+        box.add(Box.createHorizontalStrut(24));
     }
+
+    private void freeJTextField() {
+        fieldsCourse.getNameJTextField().setText("");
+        fieldsCourse.getCourseTrainingDaysJTextField().setText("");
+        fieldsCourse.getCourseNumberOfGroupJTextField().setText("");
+        fieldsCourse.getPriceJTextField().setText("");
+    }
+}
