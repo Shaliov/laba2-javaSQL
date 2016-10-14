@@ -1,6 +1,8 @@
 package laba2.view.frame;
 
 
+import laba2.enumeration.view.ConstForView;
+import laba2.modul.dataBase.DBStorage;
 import laba2.modul.table.teacher.TeacherTable;
 import laba2.view.panel.TableComponent;
 
@@ -13,7 +15,7 @@ public class TeacherFrame extends JFrame {
         Dimension screenSize = kit.getScreenSize();
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
-        setTitle("преподаватель");
+        setTitle(ConstForView.TEACHER);
         setSize(screenWidth / 2 + 10, screenHeight / 2 + 20);
         setLocation(screenWidth / 4, screenHeight / 4);
 
@@ -22,6 +24,7 @@ public class TeacherFrame extends JFrame {
 
         tableComponent.setVisible(true);
         add(tableComponent);
+//        DBStorage.getInstance().updateTeacherList();
         setResizable(false);
     }
 }

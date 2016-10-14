@@ -1,14 +1,17 @@
 package laba2.modul.table.price;
 
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Price {
     private int id;
     private Date date;
     private int price;
-    private final double priceNDS;
+    private double priceNDS;
     private static final double NDS = 1.20;
+
+    public Price() {
+    }
 
     public Price(Date date, int price) {
         this.date = date;
@@ -49,5 +52,17 @@ public class Price {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setPriceNDS(double priceNDS) {
+        this.priceNDS = priceNDS;
     }
 }

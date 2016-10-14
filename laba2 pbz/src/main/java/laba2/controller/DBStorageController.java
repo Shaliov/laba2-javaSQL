@@ -5,6 +5,7 @@ import laba2.enumeration.SQL.ConstForSQL;
 import laba2.modul.dataBase.DBWorker;
 import laba2.modul.table.course.Course;
 import laba2.modul.table.organisation.Organisation;
+import laba2.modul.table.price.Price;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -56,6 +57,29 @@ public class DBStorageController {
                 organisation.seteMail(resultSet.getString(5));
 
                 organisationList.add(organisation);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBWorker.getInstance().closeConnection();
+        }
+    }
+
+    public void fillPriceList(List<Price> priceList) {
+        try {
+            DBWorker.getInstance().openConnection();
+            Statement statement = DBWorker.getInstance().getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery(ConstForSQL.SELECT_ALL_FROM_PRICE);
+            while (resultSet.next()) {
+                Price price = new Price();
+                price.setId(resultSet.getInt(1));
+                price.setDate(resultSet.getDate(2));
+                price.setPrice(resultSet.getInt(3));
+                price.setPriceNDS(resultSet.getDouble(4));
+
+                priceList.add(price);
             }
 
 

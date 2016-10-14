@@ -23,8 +23,5 @@ public class TableComponent extends JPanel {
         add(scrollPane);
         scrollPane.revalidate();
         scrollPane.setVisible(true);
-
     }
-
-
 }

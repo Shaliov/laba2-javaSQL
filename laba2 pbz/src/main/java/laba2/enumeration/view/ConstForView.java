@@ -4,10 +4,14 @@ package laba2.enumeration.view;
 public interface ConstForView {
     public static final String ADD = "добавить";
 
+    public static final String MAIN_WINDOW  = "Главное окно";
+
+
     public static final String ID  = "id";
     public static final String NAME  = "название";
     public static final String TYPE  = "тип";
     public static final String DATE  = "дата";
+    public static final String YEAR_MOUNTH_DAY  = "год месяц день";
 
     public static final String ID_COURSE  = "id курса";
     public static final String ID_TEACHER  = "id преподавателя";
@@ -20,6 +24,10 @@ public interface ConstForView {
     public static final String DAY  = "день";
 
     public static final String FIO  = "фио";
+    public static final String FIO_NAME  = "имя";
+    public static final String FIO_SURNAME  = "фамилия";
+    public static final String FIO_MIDDLENAME  = "фамилия";
+
     public static final String BERTHDAY  = "дата рождения";
     public static final String SEX  = "пол";
     public static final String EDUCATION  = "образование";

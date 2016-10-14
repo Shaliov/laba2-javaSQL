@@ -9,7 +9,10 @@ import java.awt.*;
 
 public class FieldsPrice {
     private JTextField idJTextField;
-    private JTextField priceDataJTextField;
+//    private JTextField priceDataJTextField;
+    private JTextField dayJTextField;
+    private JTextField mounthJTextField;
+    private JTextField yearJTextField;
     private JTextField priceJTextField;
     private JTextField priceNDSJTextField;
 
@@ -57,13 +60,21 @@ public class FieldsPrice {
     }
     public void data(Box box){
         Box boxData = Box.createHorizontalBox();
-        JLabel dataLabel = new JLabel(ConstForView.DATE);
+        JLabel dataLabel = new JLabel(ConstForView.YEAR_MOUNTH_DAY);
         dataLabel.setPreferredSize(new Dimension(260, dataLabel.getHeight()));
-        priceDataJTextField = new JTextField(20);
+        dayJTextField = new JTextField(20);
+        mounthJTextField = new JTextField(20);
+        yearJTextField = new JTextField(20);
+//        priceDataJTextField = new JTextField(20);
 
         boxData.add(dataLabel);
         boxData.add(Box.createHorizontalStrut(6));
-        boxData.add(priceDataJTextField);
+//        boxData.add(priceDataJTextField);
+        boxData.add(yearJTextField);
+        boxData.add(Box.createHorizontalStrut(6));
+        boxData.add(mounthJTextField);
+        boxData.add(Box.createHorizontalStrut(6));
+        boxData.add(dayJTextField);
         box.add(boxData);
         box.add(Box.createVerticalStrut(8));
     }
@@ -72,11 +83,40 @@ public class FieldsPrice {
         return idJTextField;
     }
 
-    public JTextField getPriceDataJTextField() {
-        return priceDataJTextField;
+//    public JTextField getPriceDataJTextField() {
+//        return priceDataJTextField;
+//    }
+
+
+    public JTextField getDayJTextField() {
+        return dayJTextField;
+    }
+
+    public JTextField getMounthJTextField() {
+        return mounthJTextField;
+    }
+
+    public JTextField getYearJTextField() {
+        return yearJTextField;
     }
 
     public JTextField getPriceJTextField() {
         return priceJTextField;
+    }
+
+    public void setDayJTextField(JTextField dayJTextField) {
+        this.dayJTextField = dayJTextField;
+    }
+
+    public void setMounthJTextField(JTextField mounthJTextField) {
+        this.mounthJTextField = mounthJTextField;
+    }
+
+    public void setYearJTextField(JTextField yearJTextField) {
+        this.yearJTextField = yearJTextField;
+    }
+
+    public void setPriceJTextField(JTextField priceJTextField) {
+        this.priceJTextField = priceJTextField;
     }
 }
