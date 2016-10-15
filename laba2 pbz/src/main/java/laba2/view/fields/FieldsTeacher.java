@@ -37,32 +37,24 @@ public class FieldsTeacher {
 
     public void teacherFIO(Box box){
         Box boxTeachername = Box.createHorizontalBox();
-        JLabel teacherNameJLabel = new JLabel(ConstForView.FIO_NAME);
+        JLabel teacherNameJLabel = new JLabel(ConstForView.FIO);
         teacherNameJLabel.setPreferredSize(new Dimension(230, teacherNameJLabel.getHeight()));
         nameJTextField = new JTextField(20);
-
-        JLabel teacherSurnameJLabel = new JLabel(ConstForView.FIO_SURNAME);
-        teacherSurnameJLabel.setPreferredSize(new Dimension(230, teacherSurnameJLabel.getHeight()));
         surnameJTextField = new JTextField(20);
-
-        JLabel teacherMiddlenameJLabel = new JLabel(ConstForView.FIO_MIDDLENAME);
-        teacherMiddlenameJLabel.setPreferredSize(new Dimension(230, teacherMiddlenameJLabel.getHeight()));
         middlenameJTextField = new JTextField(20);
 
         boxTeachername.add(teacherNameJLabel);
         boxTeachername.add(Box.createHorizontalStrut(6));
-        boxTeachername.add(nameJTextField);
-        boxTeachername.add(teacherSurnameJLabel);
-        boxTeachername.add(Box.createHorizontalStrut(6));
         boxTeachername.add(surnameJTextField);
-        boxTeachername.add(teacherMiddlenameJLabel);
         boxTeachername.add(Box.createHorizontalStrut(6));
-        boxTeachername.add(teacherMiddlenameJLabel);
+        boxTeachername.add(nameJTextField);
+        boxTeachername.add(Box.createHorizontalStrut(6));
+        boxTeachername.add(middlenameJTextField);
         box.add(boxTeachername);
         box.add(Box.createVerticalStrut(8));
     }
 
-    public void data(Box box){
+    public void date(Box box){
         Box boxData = Box.createHorizontalBox();
         JLabel dataLabel = new JLabel(ConstForView.YEAR_MOUNTH_DAY);
         dataLabel.setPreferredSize(new Dimension(260, dataLabel.getHeight()));
@@ -96,27 +88,67 @@ public class FieldsTeacher {
 
     public void teacherEducation(Box box) {
         Box boxTeacherEducation = Box.createHorizontalBox();
-        JLabel teacherEducationLabel = new JLabel(ConstForView.SEX);
+        JLabel teacherEducationLabel = new JLabel(ConstForView.EDUCATION);
         teacherEducationLabel.setPreferredSize(new Dimension(300, teacherEducationLabel.getHeight()));
         teacherEducationJComboBox = new JComboBox<TeacherEducation>(TeacherEducation.values());
 
         boxTeacherEducation.add(teacherEducationLabel);
         boxTeacherEducation.add(Box.createHorizontalStrut(6));
-        boxTeacherEducation.add(teacherSexJComboBox);
+        boxTeacherEducation.add(teacherEducationJComboBox);
         box.add(boxTeacherEducation);
         box.add(Box.createVerticalStrut(8));
     }
 
     public void teacherType(Box box) {
         Box boxTeacherType = Box.createHorizontalBox();
-        JLabel teacherEducationabel = new JLabel(ConstForView.SEX);
-        teacherEducationabel.setPreferredSize(new Dimension(300, teacherEducationabel.getHeight()));
+        JLabel teacherTypeLabel = new JLabel(ConstForView.TYPE);
+        teacherTypeLabel.setPreferredSize(new Dimension(300, teacherTypeLabel.getHeight()));
         teacherTypeJComboBox = new JComboBox<TeacherType>(TeacherType.values());
 
-        boxTeacherType.add(teacherEducationabel);
+        boxTeacherType.add(teacherTypeLabel);
         boxTeacherType.add(Box.createHorizontalStrut(6));
         boxTeacherType.add(teacherTypeJComboBox);
         box.add(boxTeacherType);
         box.add(Box.createVerticalStrut(8));
+    }
+
+    public JTextField getIdJTextField() {
+        return idJTextField;
+    }
+
+    public JTextField getNameJTextField() {
+        return nameJTextField;
+    }
+
+    public JTextField getSurnameJTextField() {
+        return surnameJTextField;
+    }
+
+    public JTextField getMiddlenameJTextField() {
+        return middlenameJTextField;
+    }
+
+    public JTextField getDayJTextField() {
+        return dayJTextField;
+    }
+
+    public JTextField getMounthJTextField() {
+        return mounthJTextField;
+    }
+
+    public JTextField getYearJTextField() {
+        return yearJTextField;
+    }
+
+    public JComboBox<TeacherSex> getTeacherSexJComboBox() {
+        return teacherSexJComboBox;
+    }
+
+    public JComboBox<TeacherEducation> getTeacherEducationJComboBox() {
+        return teacherEducationJComboBox;
+    }
+
+    public JComboBox<TeacherType> getTeacherTypeJComboBox() {
+        return teacherTypeJComboBox;
     }
 }

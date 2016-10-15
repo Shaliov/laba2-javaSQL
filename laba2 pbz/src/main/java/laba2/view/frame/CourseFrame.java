@@ -11,8 +11,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CourseFrame extends JFrame {
-    private CourseController courseController;
-
     public CourseFrame() {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
@@ -24,8 +22,8 @@ public class CourseFrame extends JFrame {
 
         CourseTable courseTable = new CourseTable();
         TableComponent tableComponent = new TableComponent(courseTable);
+        CourseController courseController = new CourseController(courseTable);
 
-        courseController = new CourseController(courseTable);
         CRUDBarCourse crudBarCourse = new CRUDBarCourse(courseController);
         crudBarCourse.addCourse();
         crudBarCourse.removeCourse();

@@ -3,8 +3,12 @@ package laba2.view.frame.Dialog.teacher;
 
 import laba2.controller.dialog.AddDialogController;
 import laba2.enumeration.view.ConstForView;
+import laba2.enumeration.view.TeacherEducation;
+import laba2.enumeration.view.TeacherSex;
+import laba2.enumeration.view.TeacherType;
 import laba2.modul.table.teacher.TeacherTable;
 import laba2.view.fields.FieldsPrice;
+import laba2.view.fields.FieldsTeacher;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -13,16 +17,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AddDialog extends JFrame {
-    private FieldsTe fieldsPrice;
+    private FieldsTeacher fieldsTeacher;
     private AddDialogController addDialogController;
 
     public AddDialog(TeacherTable teacherTable) {
-        setName("введите данный о цене");
+        setName("введите данный о преподавателе");
         Box box = Box.createVerticalBox();
-        fieldsPrice = new FieldsPrice();
+        fieldsTeacher = new FieldsTeacher();
 
-        fieldsPrice.data(box);
-        fieldsPrice.price(box);
+        fieldsTeacher.teacherFIO(box);
+        fieldsTeacher.date(box);
+        fieldsTeacher.teacherSex(box);
+        fieldsTeacher.teacherEducation(box);
+        fieldsTeacher.teacherType(box);
+
         okCancle(box);
 
         box.setBorder(new EmptyBorder(12, 12, 12, 12));
@@ -32,7 +40,7 @@ public class AddDialog extends JFrame {
         setPreferredSize(new Dimension(600, box.getHeight()));
         setSize(new Dimension(400, box.getHeight() + 20));
         addDialogController = new AddDialogController();
-        addDialogController.setPriceTable(priceTable);
+        addDialogController.setTeacherTable(teacherTable);
     }
 
     private void okCancle(Box box) {
@@ -40,17 +48,26 @@ public class AddDialog extends JFrame {
         JButton okButton = new JButton(ConstForView.OK);
         okButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-//                String dataPrice = fieldsPrice.getPriceDataJTextField().getText();
-                String day = fieldsPrice.getDayJTextField().getText();
-                String mounth = fieldsPrice.getMounthJTextField().getText();
-                String year = fieldsPrice.getYearJTextField().getText();
-                String pricePrice = fieldsPrice.getPriceJTextField().getText();
-                if(!day.isEmpty() &&
-                        !pricePrice.isEmpty() &&
-                        !mounth.isEmpty() &&
-                        !year.isEmpty()) {
+                String name = fieldsTeacher.getNameJTextField().getText();
+                String surname = fieldsTeacher.getSurnameJTextField().getText();
+                String middleName = fieldsTeacher.getMiddlenameJTextField().getText();
+                String day = fieldsTeacher.getDayJTextField().getText();
+                String mounth = fieldsTeacher.getMounthJTextField().getText();
+                String year = fieldsTeacher.getYearJTextField().getText();
 
-                    addDialogController.addPrice(year + "-" + mounth + "-" + day ,Integer.parseInt(pricePrice));
+                String fio = surname + " " + name + " " + middleName;
+                String date = year + "-" + mounth + "-" + day;
+                int sex = TeacherSex.valueOf(fieldsTeacher.getTeacherSexJComboBox().getSelectedItem().toString()).getId();
+                int education = TeacherEducation.valueOf(fieldsTeacher.getTeacherEducationJComboBox().getSelectedItem().toString()).getId();
+                int type = TeacherType.valueOf(fieldsTeacher.getTeacherTypeJComboBox().getSelectedItem().toString()).getId();
+                if(!day.isEmpty() &&
+                        !mounth.isEmpty() &&
+                            !year.isEmpty() &&
+                                !name.isEmpty() &&
+                                    !surname.isEmpty() &&
+                                        !middleName.isEmpty()) {
+
+                    addDialogController.addTeacher(fio,date,sex,education,type);
                     freeJTextField();
 
                 }
@@ -74,10 +91,12 @@ public class AddDialog extends JFrame {
         box.add(Box.createHorizontalStrut(24));
     }
     private void freeJTextField() {
-//        fieldsPrice.getPriceDataJTextField().setText("");
-        fieldsPrice.getDayJTextField().setText("");
-        fieldsPrice.getMounthJTextField().setText("");
-        fieldsPrice.getYearJTextField().setText("");
-        fieldsPrice.getPriceJTextField().setText("");
+        fieldsTeacher.getNameJTextField().setText("");
+        fieldsTeacher.getSurnameJTextField().setText("");
+        fieldsTeacher.getMiddlenameJTextField().setText("");
+        fieldsTeacher.getDayJTextField().setText("");
+        fieldsTeacher.getMounthJTextField().setText("");
+        fieldsTeacher.getYearJTextField().setText("");
+
     }
 }

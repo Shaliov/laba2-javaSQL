@@ -9,12 +9,13 @@ import java.util.List;
 
 public class DocumentTable extends AbstractTableModel {
     private List<Document> documentList = DBStorage.getInstance().getDocumentList();
-    public static final int column = 4;
+    public static final int column = 5;
 
     public DocumentTable() {
     }
 
     public static final String columnNames[] = {
+            DocumentColumnNames.ID.getName(),
             DocumentColumnNames.ID_COURSE.getName(),
             DocumentColumnNames.ID_TEACHER.getName(),
             DocumentColumnNames.START_TRAINING_DAYS.getName(),

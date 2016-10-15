@@ -74,6 +74,39 @@ public class RemoveDialogController {
         }
     }
 
+    public void removeTeacher(int id) {
+        try {
+            DBWorker.getInstance().openConnection();
+            PreparedStatement preparedStatement = DBWorker.getInstance().getConnection().prepareStatement(ConstForSQL.DELETE_FROM_TEACER);
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+
+        }
+        catch (SQLException e1) {
+            e1.printStackTrace();
+        } finally {
+            DBStorage.getInstance().updateTeacherList();
+            DBWorker.getInstance().closeConnection();
+            teacherTable.fireTableDataChanged();
+        }
+    }
+
+    public void removeDocument(int id) {
+        try {
+            DBWorker.getInstance().openConnection();
+            PreparedStatement preparedStatement = DBWorker.getInstance().getConnection().prepareStatement(ConstForSQL.DELETE_FROM_DOCUMENT);
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+
+        }
+        catch (SQLException e1) {
+            e1.printStackTrace();
+        } finally {
+            DBStorage.getInstance().updateDocumentList();
+            DBWorker.getInstance().closeConnection();
+            documentTable.fireTableDataChanged();
+        }
+    }
 
     public void setTeacherTable(TeacherTable teacherTable) {
         this.teacherTable = teacherTable;
@@ -90,5 +123,9 @@ public class RemoveDialogController {
     public void setCourseTable(CourseTable courseTable) {
 
         this.courseTable = courseTable;
+    }
+
+    public void setDocumentTable(DocumentTable documentTable) {
+        this.documentTable = documentTable;
     }
 }

@@ -1,15 +1,18 @@
 package laba2.view.frame;
 
 
+import laba2.controller.TeacherController;
 import laba2.enumeration.view.ConstForView;
 import laba2.modul.dataBase.DBStorage;
 import laba2.modul.table.teacher.TeacherTable;
+import laba2.view.box.CRUDBarTeacher;
 import laba2.view.panel.TableComponent;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class TeacherFrame extends JFrame {
+
     public TeacherFrame() {
         Toolkit kit = Toolkit.getDefaultToolkit();
         Dimension screenSize = kit.getScreenSize();
@@ -21,10 +24,17 @@ public class TeacherFrame extends JFrame {
 
         TeacherTable teacherTable = new TeacherTable();
         TableComponent tableComponent = new TableComponent(teacherTable);
+        TeacherController teacherController = new TeacherController(teacherTable);
 
+        CRUDBarTeacher crudBarTeacher = new CRUDBarTeacher(teacherController);
+        crudBarTeacher.addTeacher();
+        crudBarTeacher.removeTeacher();
+        crudBarTeacher.renameTeacher();
+
+        add(crudBarTeacher,"South");
         tableComponent.setVisible(true);
         add(tableComponent);
-//        DBStorage.getInstance().updateTeacherList();
+        DBStorage.getInstance().updateTeacherList();
         setResizable(false);
     }
 }

@@ -80,10 +80,14 @@ public class RenameDialog extends JFrame {
                 String price = fieldsCourse.getPriceJTextField().getText();
 
                 id = Integer.parseInt(JOptionPane.showInputDialog("id:").trim());
-                renameDialogController.renameCourse(id, courseName, courseType, courseTrainingDays, courseNumberOfGroup, price);
-                freeJTextField();
+                if (!courseName.isEmpty() &&
+                        !courseTrainingDays.isEmpty() &&
+                        !courseNumberOfGroup.isEmpty() &&
+                        !price.isEmpty()) {
+                    renameDialogController.renameCourse(id, courseName, courseType, courseTrainingDays, courseNumberOfGroup, price);
+                    freeJTextField();
 //                find();
-
+                }
 
             }
         });

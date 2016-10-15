@@ -1,9 +1,11 @@
 package laba2.view.frame;
 
+import laba2.controller.DocumentController;
 import laba2.enumeration.view.ConstForView;
 import laba2.modul.dataBase.DBStorage;
 import laba2.modul.table.course.CourseTable;
 import laba2.modul.table.document.DocumentTable;
+import laba2.view.box.CRUDBarDocument;
 import laba2.view.panel.TableComponent;
 
 import javax.swing.*;
@@ -23,9 +25,17 @@ public class DocumentFrame extends JFrame {
         DocumentTable documentTable = new DocumentTable();
         TableComponent tableComponent = new TableComponent(documentTable);
 
+        DocumentController documentController = new DocumentController(documentTable);
+        CRUDBarDocument crudBarDocument = new CRUDBarDocument(documentController);
+        crudBarDocument.addDocument();
+        crudBarDocument.removeDocument();
+        crudBarDocument.renameDocument();
+
+
         tableComponent.setVisible(true);
         add(tableComponent);
-//        DBStorage.getInstance().updateDocumentList();
+        add(crudBarDocument, "South");
+        DBStorage.getInstance().updateDocumentList();
         setResizable(false);
     }
 }

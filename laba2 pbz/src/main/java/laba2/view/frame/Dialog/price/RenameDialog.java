@@ -46,8 +46,10 @@ public class RenameDialog extends JFrame{
                 String price = fieldsPrice.getPriceJTextField().getText();
 
                 id = Integer.parseInt(JOptionPane.showInputDialog("id:").trim());
+                if(!data.isEmpty() ) {
                 renameDialogController.renamePrice(id, data, Integer.parseInt(price));
                 freeJTextField();
+                }
             }
         });
         JButton cancelButton = new JButton(ConstForView.CLOSE);

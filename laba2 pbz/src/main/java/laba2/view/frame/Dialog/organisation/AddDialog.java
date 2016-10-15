@@ -49,8 +49,8 @@ public class AddDialog extends JFrame {
                 String organisationMail = fieldsOrganisation.getMailJTextField().getText();
                 if(!organisationName.isEmpty() &&
                         !organisationAdres.isEmpty() &&
-                        !organisationPhone.isEmpty() &&
-                        !organisationMail.isEmpty()) {
+                            !organisationPhone.isEmpty() &&
+                                !organisationMail.isEmpty()) {
 
                     addDialogController.addOrganisation(organisationName, organisationAdres, Integer.parseInt(organisationPhone), organisationMail);
                     freeJTextField();

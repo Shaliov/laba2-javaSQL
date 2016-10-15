@@ -4,8 +4,10 @@ package laba2.controller;
 import laba2.enumeration.SQL.ConstForSQL;
 import laba2.modul.dataBase.DBWorker;
 import laba2.modul.table.course.Course;
+import laba2.modul.table.document.Document;
 import laba2.modul.table.organisation.Organisation;
 import laba2.modul.table.price.Price;
+import laba2.modul.table.teacher.Teacher;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -80,6 +82,53 @@ public class DBStorageController {
                 price.setPriceNDS(resultSet.getDouble(4));
 
                 priceList.add(price);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBWorker.getInstance().closeConnection();
+        }
+    }
+
+    public void fillTeacherList(List<Teacher> teacherList) {
+        try {
+            DBWorker.getInstance().openConnection();
+            Statement statement = DBWorker.getInstance().getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery(ConstForSQL.SELECT_ALL_FROM_TEACHER);
+            while (resultSet.next()) {
+                Teacher teacher = new Teacher();
+                teacher.setId(resultSet.getInt(1));
+                teacher.setFio(resultSet.getString(2));
+                teacher.setDateOfBerthd(resultSet.getDate(3));
+                teacher.setSex(resultSet.getString(4));
+                teacher.setEducation(resultSet.getString(5));
+                teacher.setType(resultSet.getString(6));
+                teacherList.add(teacher);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBWorker.getInstance().closeConnection();
+        }
+    }
+
+    public void fillDocumentList(List<Document> documentList) {
+        try {
+            DBWorker.getInstance().openConnection();
+            Statement statement = DBWorker.getInstance().getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery(ConstForSQL.SELECT_ALL_FROM_DOCUMENT);
+            while (resultSet.next()) {
+                Document document = new Document();
+                document.setId(resultSet.getInt(1));
+                document.setCourseId(resultSet.getInt(2));
+                document.setTecaherId(resultSet.getInt(3));
+                document.setStartTrainigDate(resultSet.getDate(4));
+                document.setCourseTrainigDays(resultSet.getInt(5));
+                documentList.add(document);
             }
 
 

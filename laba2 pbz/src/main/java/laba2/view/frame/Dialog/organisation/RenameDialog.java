@@ -51,10 +51,14 @@ public class RenameDialog extends JFrame {
                 String organisationMail = fieldsOrganisation.getMailJTextField().getText();
 
                 id = Integer.parseInt(JOptionPane.showInputDialog("id:").trim());
-                renameDialogController.renameOrganisation(id, organisationName, organisationAdres, Integer.parseInt(organisationPhone), organisationMail);
-                freeJTextField();
+                if(!organisationName.isEmpty() &&
+                        !organisationAdres.isEmpty() &&
+                        !organisationPhone.isEmpty() &&
+                        !organisationMail.isEmpty()) {
+                    renameDialogController.renameOrganisation(id, organisationName, organisationAdres, Integer.parseInt(organisationPhone), organisationMail);
+                    freeJTextField();
 //                find();
-
+                }
 
             }
         });

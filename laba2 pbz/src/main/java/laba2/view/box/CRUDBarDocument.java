@@ -1,7 +1,7 @@
 package laba2.view.box;
 
 
-import laba2.controller.CourseController;
+import laba2.controller.DocumentController;
 import laba2.enumeration.view.ConstForView;
 
 import javax.swing.*;
@@ -9,17 +9,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CRUDBarDocument  extends Box {
-    private CourseController courseController;
+    private DocumentController documentController;
 
-    public CRUDBarDocument() {
+    public CRUDBarDocument(DocumentController documentController)
+    {
         super(0);
+        this.documentController = documentController;
     }
 
-    public void addCourse() {
+    public void addDocument() {
         JButton newEntry = new JButton(ConstForView.ADD);
         newEntry.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                courseController.newAddDialogCourseTable();
+                documentController.newAddDialogCourseTable();
             }
         });
 
@@ -27,29 +29,24 @@ public class CRUDBarDocument  extends Box {
 
     }
 
-    public void removeCourse() {
+    public void removeDocument() {
         JButton removeEntry = new JButton(ConstForView.REMOVE);
         removeEntry.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                courseController.removeDialogCourseTable();
+                documentController.removeDialogCourseTable();
             }
         });
         add(removeEntry);
     }
 
-    public void renameCourse() {
+    public void renameDocument() {
         JButton renameEntry = new JButton(ConstForView.RENAME);
         renameEntry.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                courseController.renameDialogCourseTable();
+                documentController.renameDialogCourseTable();
             }
         });
         add(renameEntry);
-    }
-
-
-    public void setCourseController(CourseController courseController) {
-        this.courseController = courseController;
     }
 }
 

@@ -46,6 +46,16 @@ public class DBStorage {
         dbStorageController.fillPriceList(priceList);
     }
 
+    public void updateTeacherList() {
+        teacherList.clear();
+        dbStorageController.fillTeacherList(teacherList);
+    }
+
+    public void updateDocumentList() {
+        documentList.clear();
+        dbStorageController.fillDocumentList(documentList);
+    }
+
     public List<Course> getCourseList() {
         return courseList;
     }

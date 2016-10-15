@@ -1,7 +1,7 @@
 package laba2.modul.table.document;
 
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Document {
     private int id;
@@ -9,6 +9,9 @@ public class Document {
     private int tecaherId;
     private Date startTrainigDate;
     private int courseTrainigDays;
+
+    public Document() {
+    }
 
     public Document(int courseId, int tecaherId, Date startTrainigDate, int courseTrainigDays) {
         this.courseId = courseId;
@@ -52,5 +55,25 @@ public class Document {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
+    }
+
+    public void setTecaherId(int tecaherId) {
+        this.tecaherId = tecaherId;
+    }
+
+    public void setStartTrainigDate(Date startTrainigDate) {
+        this.startTrainigDate = startTrainigDate;
+    }
+
+    public void setCourseTrainigDays(int courseTrainigDays) {
+        this.courseTrainigDays = courseTrainigDays;
     }
 }

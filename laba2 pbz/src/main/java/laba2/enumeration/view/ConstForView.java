@@ -8,6 +8,8 @@ public interface ConstForView {
 
 
     public static final String ID  = "id";
+    public static final String COURSE_ID  = "id курса";
+    public static final String TEACHER_ID  = "id преподавателя";
     public static final String NAME  = "название";
     public static final String TYPE  = "тип";
     public static final String DATE  = "дата";

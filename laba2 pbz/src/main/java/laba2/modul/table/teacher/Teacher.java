@@ -5,25 +5,23 @@ import laba2.enumeration.view.TeacherEducation;
 import laba2.enumeration.view.TeacherSex;
 import laba2.enumeration.view.TeacherType;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Teacher {
     private int id;
-    private String name;
-    private String surname;
-    private String middleName;
     private String fio;
     private Date dateOfBerthd;
     private TeacherSex sex;
     private TeacherEducation education;
     private TeacherType type;
 
-    public Teacher(String name, String surname, String middleName, Date dateOfBerthd,
+
+    public Teacher() {
+    }
+
+    public Teacher(String fio, Date dateOfBerthd,
                    TeacherSex sex, TeacherEducation education, TeacherType type) {
-        this.name = name;
-        this.surname = surname;
-        this.middleName = middleName;
-        fio = name+surname+middleName;
+        this.fio = fio;
         this.dateOfBerthd = dateOfBerthd;
         this.sex = sex;
         this.education = education;
@@ -47,18 +45,6 @@ public class Teacher {
             default:
                 return "";
         }
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getMiddleName() {
-        return middleName;
     }
 
     public String getFio() {
@@ -87,5 +73,37 @@ public class Teacher {
 
     public TeacherType getType() {
         return type;
+    }
+
+    public void setFio(String fio) {
+        this.fio = fio;
+    }
+
+    public void setDateOfBerthd(Date dateOfBerthd) {
+        this.dateOfBerthd = dateOfBerthd;
+    }
+
+    public void setSex(String  name) {
+        for(TeacherSex teacherSex : TeacherSex.values()) {
+            if(teacherSex.getName().equals(name)) {
+                this.sex = teacherSex;
+            }
+        }
+    }
+
+    public void setEducation(String name) {
+        for(TeacherEducation teacherEducation : TeacherEducation.values()) {
+            if(teacherEducation.getName().equals(name)) {
+                this.education = teacherEducation;
+            }
+        }
+    }
+
+    public void setType(String name) {
+        for(TeacherType teacherType : TeacherType.values()) {
+            if(teacherType.getName().equals(name)) {
+                this.type = teacherType;
+            }
+        }
     }
 }

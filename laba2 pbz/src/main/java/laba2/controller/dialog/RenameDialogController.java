@@ -89,6 +89,49 @@ public class RenameDialogController {
         }
     }
 
+    public void renameTeacher(int id, String fio, String date, int sex, int education, int type  ) {
+        try {
+            DBWorker.getInstance().openConnection();
+            PreparedStatement preparedStatement = DBWorker.getInstance().getConnection().prepareStatement(ConstForSQL.RENAME_TEACHER);
+            preparedStatement.setString(1, fio);
+            preparedStatement.setString(2, date);
+            preparedStatement.setInt(3, sex);
+            preparedStatement.setInt(4, education);
+            preparedStatement.setInt(5, type);
+            preparedStatement.setInt(6, id);
+            preparedStatement.execute();
+
+        }
+        catch (SQLException e1) {
+            e1.printStackTrace();
+        } finally {
+            DBStorage.getInstance().updateTeacherList();
+            DBWorker.getInstance().closeConnection();
+            teacherTable.fireTableDataChanged();
+        }
+    }
+
+    public void renameDocument(int id, int courseID, int teacherID, String data, int trainingDay ) {
+        try {
+            DBWorker.getInstance().openConnection();
+            PreparedStatement preparedStatement = DBWorker.getInstance().getConnection().prepareStatement(ConstForSQL.RENAME_DOCUMENT);
+            preparedStatement.setInt(1, courseID);
+            preparedStatement.setInt(2, teacherID);
+            preparedStatement.setString(3, data);
+            preparedStatement.setInt(4, trainingDay);
+            preparedStatement.setInt(5, id);
+            preparedStatement.execute();
+
+        }
+        catch (SQLException e1) {
+            e1.printStackTrace();
+        } finally {
+            DBStorage.getInstance().updateDocumentList();
+            DBWorker.getInstance().closeConnection();
+            documentTable.fireTableDataChanged();
+        }
+    }
+
     public void setCourseTable(CourseTable courseTable) {
         this.courseTable = courseTable;
     }
