@@ -5,10 +5,13 @@ import laba2.enumeration.SQL.ConstForSQL;
 import laba2.modul.dataBase.DBWorker;
 import laba2.modul.table.course.Course;
 import laba2.modul.table.document.Document;
+import laba2.modul.table.example.PriceList;
+import laba2.modul.table.example.TeacherForCourseBetwenYearsModel;
 import laba2.modul.table.organisation.Organisation;
 import laba2.modul.table.price.Price;
 import laba2.modul.table.teacher.Teacher;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -131,6 +134,52 @@ public class DBStorageController {
                 documentList.add(document);
             }
 
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBWorker.getInstance().closeConnection();
+        }
+    }
+
+    public void fillPriceListExample(List<PriceList> priceLists) {
+        try {
+            DBWorker.getInstance().openConnection();
+            Statement statement = DBWorker.getInstance().getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery(ConstForSQL.SELECT_PRICE_LIST);
+            while (resultSet.next()) {
+                PriceList priceL = new PriceList();
+                priceL.setCourseName(resultSet.getString(1));
+                priceL.setCourseTrainingDays(resultSet.getInt(2));
+                priceL.setPricePrice(resultSet.getInt(3));
+                priceL.setPricePriceNDS(resultSet.getDouble(3));
+                priceLists.add(priceL);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DBWorker.getInstance().closeConnection();
+        }
+    }
+
+    public void fillTeacherForCourseBetwenYearsList(List<TeacherForCourseBetwenYearsModel> teacherForCourseBetwenYearsModelList, String fio, String date1, String date2 ) {
+        try {
+            DBWorker.getInstance().openConnection();
+            PreparedStatement preparedStatement = DBWorker.getInstance().getConnection().prepareStatement(ConstForSQL.SELECT_COURSE_FOR_TEACHER_BWTWEEN);
+            preparedStatement.setString(1, fio);
+            preparedStatement.setString(2, date1);
+            preparedStatement.setString(3, date2);
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getResultSet();
+
+            while (resultSet.next()) {
+                TeacherForCourseBetwenYearsModel teacherForCourseBetwenYearsModel = new TeacherForCourseBetwenYearsModel();
+                teacherForCourseBetwenYearsModel.setCourseName(resultSet.getString(1));
+                teacherForCourseBetwenYearsModel.setStartTrainingDays(resultSet.getDate(2));
+                teacherForCourseBetwenYearsModel.setCourseTrainingDays(resultSet.getInt(3));
+                teacherForCourseBetwenYearsModelList.add(teacherForCourseBetwenYearsModel);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();

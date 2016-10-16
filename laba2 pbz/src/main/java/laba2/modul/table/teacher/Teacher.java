@@ -6,6 +6,8 @@ import laba2.enumeration.view.TeacherSex;
 import laba2.enumeration.view.TeacherType;
 
 import java.sql.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Teacher {
     private int id;
@@ -17,6 +19,7 @@ public class Teacher {
 
 
     public Teacher() {
+
     }
 
     public Teacher(String fio, Date dateOfBerthd,
@@ -46,6 +49,7 @@ public class Teacher {
                 return "";
         }
     }
+
 
     public String getFio() {
         return fio;

@@ -15,7 +15,7 @@ public class StartFrame extends JFrame {
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
         setTitle(ConstForView.MAIN_WINDOW);
-        setSize(250, 200);
+        setSize(250, 250);
         setLocation(screenWidth / 4, screenHeight / 4);
 
         add(new StartPanel());

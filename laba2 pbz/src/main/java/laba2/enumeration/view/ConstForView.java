@@ -61,6 +61,9 @@ public interface ConstForView {
     public static final String TEACHER  = "преподаватель";
     public static final String DOCUMENTS  = "документы";
 
+    public static final String PRICE_EXAMPLE  = "просмотр прайс листа";
+    public static final String TEACHER_BETWEEN  = "курсы преподавателя";
+
     public static final String OK  = "ок";
     public static final String CLOSE  = "закрыть";
     public static final String REMOVE  = "удалить";

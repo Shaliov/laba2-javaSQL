@@ -1,6 +1,8 @@
 package laba2.modul.table.organisation;
 
 
+import java.util.*;
+
 public class Organisation {
     private int id;
     private String name;
@@ -17,7 +19,6 @@ public class Organisation {
         this.phone = phone;
         this.eMail = eMail;
     }
-
     public Object get(int index) {
         switch (index) {
             case 0:
@@ -34,7 +35,6 @@ public class Organisation {
                 return "";
         }
     }
-
     public String getName() {
         return name;
     }

@@ -3,7 +3,9 @@ package laba2.modul.table.course;
 
 import laba2.enumeration.view.CourseType;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Course {
     private int id;
@@ -46,7 +48,7 @@ public class Course {
             default:
                 return "";
         }
-    }
+}
 
 
     public String getName() {
@@ -86,8 +88,8 @@ public class Course {
     }
 
     public void setType(String name) {
-        for(CourseType courseType: CourseType.values()) {
-            if(courseType.getName().equals(name)) {
+        for (CourseType courseType : CourseType.values()) {
+            if (courseType.getName().equals(name)) {
                 this.type = courseType;
             }
         }

@@ -19,6 +19,8 @@ public interface ConstForSQL {
     public static final String SELECT_ALL_FROM_PRICE  = "SELECT * FROM Price";
     public static final String SELECT_ALL_FROM_TEACHER  = "SELECT * FROM Teacher";
     public static final String SELECT_ALL_FROM_DOCUMENT  = "SELECT * FROM Document";
+    public static final String SELECT_PRICE_LIST  = "SELECT courseName, courseTrainingDays, pricePrice, pricePriceNDS FROM course;";
+    public static final String SELECT_COURSE_FOR_TEACHER_BWTWEEN  = "select Course.courseName, document.startTrainingData, document.courseTrainingDays from course, document, teacher  where Course.courseID = (select courseId from document where teacherId = (select teacherId from teacher where teacherFIO = ?) && (select courseId from document where startTrainingData between ? and ?));";
 
     public static final String DELETE_FROM_COURSE  = "DELETE LOW_PRIORITY FROM Course WHERE courseID = ?";
     public static final String DELETE_FROM_ORGANISATION  = "DELETE LOW_PRIORITY FROM Organisation WHERE orgID = ?";

@@ -1,6 +1,8 @@
 package laba2.modul.table.price;
 
 
+
+
 import java.sql.Date;
 
 public class Price {
@@ -33,7 +35,6 @@ public class Price {
                 return "";
         }
     }
-
     public Date getDate() {
         return date;
     }

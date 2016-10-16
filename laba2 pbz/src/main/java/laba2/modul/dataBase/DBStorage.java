@@ -4,9 +4,12 @@ package laba2.modul.dataBase;
 import laba2.controller.DBStorageController;
 import laba2.modul.table.course.Course;
 import laba2.modul.table.document.Document;
+import laba2.modul.table.example.PriceList;
+import laba2.modul.table.example.TeacherForCourseBetwenYearsModel;
 import laba2.modul.table.organisation.Organisation;
 import laba2.modul.table.price.Price;
 import laba2.modul.table.teacher.Teacher;
+import laba2.view.frame.example.TeacherForCourseBetwenYears;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,9 @@ public class DBStorage {
     private List<Organisation> organisationList = new ArrayList();
     private List<Price> priceList = new ArrayList();
     private List<Teacher> teacherList = new ArrayList();
+    private List<PriceList> priceListsExample = new ArrayList();
+    private List<TeacherForCourseBetwenYearsModel> teacherForCourseBetwenYearses = new ArrayList();
+
 
     public DBStorage() {
         dbStorageController = new DBStorageController();
@@ -54,6 +60,28 @@ public class DBStorage {
     public void updateDocumentList() {
         documentList.clear();
         dbStorageController.fillDocumentList(documentList);
+    }
+
+    public void updatePriceListExample() {
+        priceListsExample.clear();
+        dbStorageController.fillPriceListExample(priceListsExample);
+    }
+
+    public void updateteacherForCourseBetwenYearseList( String fio, String date1, String date2 ) {
+        teacherForCourseBetwenYearses.clear();
+        dbStorageController.fillTeacherForCourseBetwenYearsList(teacherForCourseBetwenYearses, fio, date1, date2);
+    }
+
+    public List<TeacherForCourseBetwenYearsModel> getTeacherForCourseBetwenYearses() {
+        return teacherForCourseBetwenYearses;
+    }
+
+    public void setTeacherForCourseBetwenYearses(List<TeacherForCourseBetwenYearsModel> teacherForCourseBetwenYearses) {
+        this.teacherForCourseBetwenYearses = teacherForCourseBetwenYearses;
+    }
+
+    public List<PriceList> getPriceListsExample() {
+        return priceListsExample;
     }
 
     public List<Course> getCourseList() {
